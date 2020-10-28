@@ -7,7 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.my.spring.pojo.Usuario;
+import com.nexus.pojo.Usuario;
 
 public class UserValidator implements Validator {
 

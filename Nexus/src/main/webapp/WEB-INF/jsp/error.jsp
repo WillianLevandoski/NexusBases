@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h3>Hello ${name}!</h3>
-<h3>Hello ${pass}!</h3>
+<h3>Página não encontrada</h3>
 </body>
 </html>

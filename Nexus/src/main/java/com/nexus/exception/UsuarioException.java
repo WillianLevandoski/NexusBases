@@ -1,4 +1,4 @@
-package com.my.spring.exception;
+package com.nexus.exception;
 
 public class UsuarioException extends Exception {
 

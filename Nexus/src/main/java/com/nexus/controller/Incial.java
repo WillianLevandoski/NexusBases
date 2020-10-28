@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.nexus.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,13 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class HellorControler {
+public class Incial {
 	
-	@GetMapping({"/", "/hello"})
+	
+	@GetMapping({"/", "/inicial"})
 	public String hello(@RequestParam(value = "name", defaultValue = "World", required = true)String name,@RequestParam(value = "senha", defaultValue = "World", required = true)String senha, Model model) {
 		model.addAttribute("name", name);
 		model.addAttribute("pass", senha);
-		return "hello";
+		
+		return "inicial";
 	}
 
 }

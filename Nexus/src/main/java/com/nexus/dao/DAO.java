@@ -1,4 +1,4 @@
-package com.my.spring.dao;
+package com.nexus.dao;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

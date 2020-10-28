@@ -1,4 +1,4 @@
-package com.my.spring.pojo;
+package com.nexus.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+	
+	public Usuario() {
+		
+	}
 	
 	@Id
 	private Integer id;
@@ -21,10 +25,6 @@ public class Usuario {
 	public Usuario(String nome, String senha) {
 		this.nome = nome;
 		this.senha = senha;
-	}
-
-	public Usuario() {
-	
 	}
 
 	public String getNome() {
