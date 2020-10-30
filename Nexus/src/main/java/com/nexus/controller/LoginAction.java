@@ -35,14 +35,34 @@ public class LoginAction {
 	}
 	
 	@RequestMapping("/efetuaLogin")
-	public String efetuaLogin(@RequestParam(value = "nome")String nome,@RequestParam(value = "senha")String senha, Model model, HttpSession session) {
-		//TODO Validar nome e senha
-		  Usuario usuario = new UsuarioDAO().getUsuarioPorNomeESenha(nome, senha).orElseThrow(() -> new NullPointerException("Invalid Number"));
-		  setSessao(usuario, session);
-          return "inicial";
+	public String efetuaLogin(@RequestParam(value = "nome") String nome, @RequestParam(value = "senha") String senha,
+			Model model, HttpSession session) {
+		try {
+			// TODO Validar nome e senha
+			Usuario usuario = new UsuarioDAO().getUsuarioPorNomeESenha(nome, senha).get();
+			if (usuario != null) {
+				setSessao(usuario, session);
+				return "inicial";
+			} else {
+				//Logar quando usuário errar senha
+				
+		        session.setAttribute("erroAologar", "Usário ou Senha Inválidos");
+				return "login";
+			}
+
+		} catch (Exception e) {
+	        session.setAttribute("erroAologar", "Usário ou Senha Inválidos");
+			return "login";
+		}
+
 	}
 	  
-	  public void setSessao(Usuario usuario, HttpSession session) {
+	  private Object loginInvalido() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setSessao(Usuario usuario, HttpSession session) {
 	          session.setAttribute("usuarioLogado", usuario);
 	      }
 
