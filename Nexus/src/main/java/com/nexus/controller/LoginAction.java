@@ -65,5 +65,13 @@ public class LoginAction {
 	public void setSessao(Usuario usuario, HttpSession session) {
 	          session.setAttribute("usuarioLogado", usuario);
 	      }
+	
+	
+	
+    
+	@GetMapping({"/dashboard"})
+	public String dashboard() {
+		return "dashboard";
+	}
 
 }

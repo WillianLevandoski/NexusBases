@@ -17,5 +17,4 @@ public class UsuarioAction  {
 			model.addAttribute("pass", senha);
 			return "usuario";
 		}
-		
 }
