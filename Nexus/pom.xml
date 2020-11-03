@@ -9,6 +9,20 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<groupId>com.example</groupId>
 	<artifactId>Nexus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -113,6 +127,8 @@
 
 
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
