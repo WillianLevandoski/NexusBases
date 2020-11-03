@@ -15,7 +15,15 @@ import com.nexus.pojo.Usuario;
 
 @Controller
 public class LoginAction {
-    UsuarioDAO dao = new UsuarioDAO();
+	
+	
+    public LoginAction(UsuarioDAO dao) {
+		super();
+		this.dao = dao;
+	}
+
+
+	UsuarioDAO dao = new UsuarioDAO();
 
     @GetMapping({"/", "/login"})
 	public String hello() {
