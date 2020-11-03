@@ -34,6 +34,13 @@
 	</properties>
 
 	<dependencies>
+			<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>3.0</version>
+			<scope>test</scope>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -122,6 +129,8 @@
 			<artifactId>jquery</artifactId>
 			<version>3.5.1</version>
 		</dependency>
+
+
 
 
 

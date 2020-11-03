@@ -23,7 +23,6 @@ public class LoginAction {
 	} 
 	
 	@RequestMapping(value = "/inicial", method = RequestMethod.POST)
-
 	public String efetuaLogin(@RequestParam(value = "email") String nome, @RequestParam(value = "senha") String senha,
 			Model model, HttpSession session) {
 		try {
