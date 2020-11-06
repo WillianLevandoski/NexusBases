@@ -18,6 +18,9 @@ public class Usuario {
 
 	@Column(name = "nome")
 	private String nome;
+	
+	@Column(name = "email")
+	private String email;
 
 	@Column(name = "senha")
 	private String senha;
@@ -26,6 +29,15 @@ public class Usuario {
 		this.nome = nome;
 		this.senha = senha;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 
 	public String getNome() {
 		return nome;
@@ -33,6 +45,15 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {

@@ -17,4 +17,14 @@ public class UsuarioAction  {
 			model.addAttribute("pass", senha);
 			return "usuario";
 		}
+		
+		@GetMapping({"/cadastrarUsuario"})
+		public String cadastrarUsuario() {
+			return "cadastrarUsuario";
+		}
+		
+		@GetMapping({"/menu"})
+		public String menu() {
+			return "menu";
+		}
 }

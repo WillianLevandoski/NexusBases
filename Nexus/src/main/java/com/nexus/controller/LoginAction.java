@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nexus.dao.UsuarioDAO;
 import com.nexus.pojo.Usuario;
+import com.nexus.utils.Utils;
 
 @Controller
 public class LoginAction {
@@ -23,26 +24,29 @@ public class LoginAction {
 	@RequestMapping(value = "/inicial", method = RequestMethod.POST)
 	public String efetuaLogin(@RequestParam(value = "email") String nome, @RequestParam(value = "senha") String senha,Model model, HttpSession session) {
 		try {
-			// TODO Validar nome e senha
-			Usuario usuario = new UsuarioDAO().getUsuarioPorNomeESenha(nome, senha).get();
-			if (usuario != null) {
-				setSessao(usuario, session);
-				return "inicial";
-			} else {
-				// Logar quando usuário errar senha
-
-				session.setAttribute("erroAologar", "Usário ou Senha Inválidos");
-				return "inicial";
+			if (Utils.validarEmail(nome)) {
+				Usuario usuario = new UsuarioDAO().getUsuarioPorNomeESenha(nome, senha).get();
+				if (usuario != null) {
+					setSessao(usuario, session);
+					return "inicial";
+				} else {
+					return erroAoLogar(session);
+				}
 			}
-
 		} catch (Exception e) {
-			session.setAttribute("erroAologar", "Usário ou Senha Inválidos");
-			return "inicial";
+			return erroAoLogar(session);
 		}
+		return erroAoLogar(session);
+	}
+
+	private String erroAoLogar(HttpSession session) {
+		session.setAttribute("erroAologar", "Usário ou Senha Inválidos");
+		return "login";
 	}
 
 	public void setSessao(Usuario usuario, HttpSession session) {
 		session.setAttribute("usuarioLogado", usuario);
+		session.setAttribute("erroAologar", "");
 	}
 
 	@GetMapping({ "/dashboard" })
