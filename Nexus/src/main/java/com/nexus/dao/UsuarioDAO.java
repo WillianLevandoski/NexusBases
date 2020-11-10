@@ -16,9 +16,6 @@ import com.nexus.pojo.Usuario;
 
 public class UsuarioDAO extends SuperDAO {
 
-	public UsuarioDAO() {
-	}
-
 	public Usuario get(String nome, String senha) throws UsuarioException {
 		try {
 			begin();

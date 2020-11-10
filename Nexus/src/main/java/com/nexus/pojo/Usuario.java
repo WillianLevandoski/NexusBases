@@ -10,10 +10,6 @@ import javax.persistence.Table;
 @Table(name = "usuario")
 public class Usuario {
 	
-	public Usuario() {
-		
-	}
-	
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -27,10 +23,6 @@ public class Usuario {
 	@Column(name = "senha")
 	private String senha;
 
-	public Usuario(String nome, String senha) {
-		this.nome = nome;
-		this.senha = senha;
-	}
 	
 	public Integer getId() {
 		return id;
