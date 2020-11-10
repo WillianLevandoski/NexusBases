@@ -21,11 +21,11 @@ public class LoginAction {
 		return "login";
 	}
 
-	@RequestMapping(value = "/inicial", method = RequestMethod.POST)
-	public String efetuaLogin(@RequestParam(value = "email") String nome, @RequestParam(value = "senha") String senha,Model model, HttpSession session) {
+	@RequestMapping(value = "/inicial", method = {RequestMethod.POST, RequestMethod.GET})
+	public String efetuaLogin(@RequestParam(value = "email") String email, @RequestParam(value = "senha") String senha,Model model, HttpSession session) {
 		try {
-			if (Utils.validarEmail(nome)) {
-				Usuario usuario = new UsuarioDAO().getUsuarioPorNomeESenha(nome, senha).get();
+			if (Utils.validarEmail(email)) {
+				Usuario usuario = new UsuarioDAO().getUsuarioPorEmailESenha(email, senha).get();
 				if (usuario != null) {
 					setSessao(usuario, session);
 					return "inicial";

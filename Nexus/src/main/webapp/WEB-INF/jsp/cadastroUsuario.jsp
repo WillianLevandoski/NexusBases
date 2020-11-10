@@ -290,42 +290,34 @@
 		<section id="main-content">
 			<section class="wrapper">
 				<h3>
-					<i class="fa fa-angle-right"></i> Form Validation
+					<i class="fa fa-angle-right"></i> Cadastro Usuário
 				</h3>
 				<!-- BASIC FORM VALIDATION -->
 				<div class="row mt">
 					<div class="col-lg-12">
-						<h4>
-							<i class="fa fa-angle-right"></i> Basic Validations
-						</h4>
 						<div class="form-panel">
-							<form role="form" class="form-horizontal style-form">
-								<div class="form-group has-success">
-									<label class="col-lg-2 control-label">First Name</label>
+							<form role="form" class="form-horizontal style-form"  action="cadastrarUsuario" method="post">
+								<div class="form-group">
+									<label class="col-lg-2 control-label">Nome</label>
 									<div class="col-lg-10">
-										<input type="text" placeholder="" id="f-name"
-											class="form-control">
-										<p class="help-block">Successfully done</p>
+										<input type="text" placeholder="" id="f-name" name="nome" class="form-control">
 									</div>
 								</div>
-								<div class="form-group ">
-									<label for="password" class="control-label col-lg-2">Password</label>
+								<div class="form-group">
+									<label for="password" class="control-label col-lg-2">Senha</label>
 									<div class="col-lg-10">
-										<input class="form-control " id="password" name="password"
-											type="password" />
+										<input class="form-control " id="password" name="senha" type="password" />
 									</div>
 								</div>
-								<div class="form-group has-warning">
+								<div class="form-group">
 									<label class="col-lg-2 control-label">Email</label>
 									<div class="col-lg-10">
-										<input type="email" placeholder="" id="email2"
-											class="form-control">
-										<p class="help-block">Something went wrong</p>
+										<input type="email" placeholder="" id="email2" name="email" class="form-control">
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-lg-offset-2 col-lg-10">
-										<button class="btn btn-theme" type="submit">Submit</button>
+										<button class="btn btn-theme" type="submit">Cadastrar</button>
 									</div>
 								</div>
 							</form>

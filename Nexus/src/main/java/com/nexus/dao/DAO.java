@@ -18,12 +18,9 @@ public class DAO {
     protected DAO() {
     }
 
-    public static Session getSession()
-    {
+    public static Session getSession(){
         Session session = (Session) DAO.sessionThread.get();
-        
-        if (session == null)
-        {
+        if (session == null){
             session = sessionFactory.openSession();
             DAO.sessionThread.set(session);
         }

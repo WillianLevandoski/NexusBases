@@ -19,14 +19,16 @@
 <!-- Custom styles for this template -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet">
+<jsp:include page="css.jsp" />
+
 </head>
 <body>
 	<div id="login-page">
 		<div class="container">
 			<form class="form-login" action="inicial" method="post">
-				<h2 class="form-login-heading">LOGIN</h2>
+				<h2 class="'-login-heading">LOGIN</h2>
 				<div class="login-wrap">
-					<input type="text" class="form-control"  name="email" class placeholder="Email" autofocus> 
+					<input type="text" class="form-control"  name="email"  placeholder="Email" autofocus> 
 						<br> 
 						<input name="senha" class="form-control" placeholder="Senha">
 						<span style="color:red">${erroAologar}</span>

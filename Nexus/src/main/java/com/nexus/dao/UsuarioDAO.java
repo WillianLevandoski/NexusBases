@@ -14,7 +14,7 @@ import org.hibernate.Query;
 import com.nexus.exception.UsuarioException;
 import com.nexus.pojo.Usuario;
 
-public class UsuarioDAO extends DAO {
+public class UsuarioDAO extends SuperDAO {
 
 	public UsuarioDAO() {
 	}
@@ -26,7 +26,6 @@ public class UsuarioDAO extends DAO {
 			q.setString("usuario", nome);
 			q.setString("senha", senha);
 			Usuario usuario = (Usuario) q.uniqueResult();
-			//System.out.println(user.getUsertype());
 			commit();
 			return usuario;
 		} catch (HibernateException e) {
@@ -60,16 +59,12 @@ public class UsuarioDAO extends DAO {
 	    return allQuery.getResultList();
 	}
 
-	public Usuario register(Usuario u)
-			throws UsuarioException {
+	public Usuario register(Usuario u)throws UsuarioException {
 		try {
 			begin();
-			System.out.println("inside DAO");
-			Usuario user = new Usuario(u.getNome(), u.getSenha());
-			getSession().save(user);
+			getSession().save(u);
 			commit();
-			return user;
-
+			return u;
 		} catch (HibernateException e) {
 			rollback();
 			throw new UsuarioException("Exception while creating user: " + e.getMessage());
@@ -87,12 +82,12 @@ public class UsuarioDAO extends DAO {
 		}
 	}
 	
-	public Optional<Usuario> getUsuarioPorNomeESenha(String nome, String senha){
+	public Optional<Usuario> getUsuarioPorEmailESenha(String email, String senha){
 		//TODO: senha para md5
 		try {
 			begin();
-			Query q = getSession().createQuery("FROM Usuario where nome= :nome AND senha= :senha");
-			q.setString("nome", nome);
+			Query q = getSession().createQuery("FROM Usuario where email= :email AND senha= :senha");
+			q.setString("email", email);
 			q.setString("senha", senha);
 			Usuario usuario = (Usuario) q.uniqueResult();
 			commit();

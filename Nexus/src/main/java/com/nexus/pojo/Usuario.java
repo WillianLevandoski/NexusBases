@@ -2,6 +2,7 @@ package com.nexus.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,6 +15,7 @@ public class Usuario {
 	}
 	
 	@Id
+	@GeneratedValue
 	private Integer id;
 
 	@Column(name = "nome")
@@ -46,7 +48,6 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 	
 	public String getEmail() {
 		return email;
