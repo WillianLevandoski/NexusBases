@@ -38,6 +38,22 @@ public class LoginAction {
 		}
 		return erroAoLogar(session);
 	}
+	
+	@RequestMapping(value = "/deslogar", method =  RequestMethod.GET)
+	public String deslogar(HttpSession session) {
+		removerSessao(session);
+		return "login";
+
+	}
+	
+
+	private void removerSessao(HttpSession session) {
+		if(session.getAttribute("usuarioLogado")!= null) {
+			session.removeAttribute("usuarioLogado");
+		}else {
+			session.setAttribute("usuarioLogado", null);
+		}
+	}
 
 	private String erroAoLogar(HttpSession session) {
 		session.setAttribute("erroAologar", "Usário ou Senha Inválidos");
