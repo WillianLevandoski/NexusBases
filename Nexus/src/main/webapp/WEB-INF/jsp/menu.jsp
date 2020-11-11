@@ -30,12 +30,12 @@
 					<li class="mt"><a class="active" href="index.html">  <i class="fa fa-dashboard"></i> <span>Gráficos</span></a></li>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-desktop"></i> <span>Cadastro</span> </a>
 						<ul class="sub">
-							<li><a  class="fa fa-user" href="/cadastroUsuario">  Usuário</a></li>
+							<li><a  class="fa fa-user" href="/cadastroUsuario"> - Usuário</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-search"></i> <span>Consulta</span> </a>
 						<ul class="sub">
-							<li><a class="fa fa-user" href="/consultaUsuario">  Usuário</a></li>
+							<li><a class="fa fa-user" href="/consultaUsuario"> - Usuário</a></li>
 						</ul>
 					</li>
 				</ul>
