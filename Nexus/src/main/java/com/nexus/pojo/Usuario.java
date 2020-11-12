@@ -22,6 +22,9 @@ public class Usuario {
 
 	@Column(name = "senha")
 	private String senha;
+	
+	@Column(name = "nivel")
+	private Integer nivel;
 
 	
 	public Integer getId() {
@@ -57,4 +60,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	public String getNivel() {
+		return senha;
+	}
+
+	public void setNivel(Integer nivel) {
+		this.nivel = nivel;
+	}
 }

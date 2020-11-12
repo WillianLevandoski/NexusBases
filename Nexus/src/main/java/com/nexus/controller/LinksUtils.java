@@ -13,6 +13,11 @@ public class LinksUtils {
 		return "cadastroUsuario";
 	}
 	
+	@GetMapping({"/cadastroUsuarioExterno"})
+	public String cadastroUsuarioExterno() {
+		return "cadastroUsuarioExterno";
+	}
+	
 	@GetMapping({"/menu"})
 	public String menu() {
 		return "menu";

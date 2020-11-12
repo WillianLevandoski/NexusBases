@@ -40,7 +40,11 @@
 					</button>
 					<hr>
 					<div class="registration">
-						Ainda não tem conta?<br /> <a class="" href="#"> Criar conta</a>
+						Ainda não tem conta?<br /> <a class=""
+						href="cadastroUsuarioExterno"  target="popup" 
+						onclick="window.open('cadastroUsuarioExterno','popup','width=600,height=600'); return false;">
+   						 Criar conta
+					</a>
 					</div>
 				</div>
 				<!-- Modal -->

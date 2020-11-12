@@ -27,12 +27,13 @@ public class UsuarioAction  {
 		}
 		
 		@RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.POST)
-		public String efetuaLogin(@RequestParam(value = "nome") String nome,  @RequestParam(value = "email") String email ,@RequestParam(value = "senha") String senha,Model model, HttpSession session) {
+		public String cadastrarUsuario(@RequestParam(value = "nome") String nome,  @RequestParam(value = "email") String email ,@RequestParam(value = "senha") String senha,Model model, HttpSession session) {
 			try {
 			Usuario usuario = new Usuario();
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			usuario.setSenha(senha);
+			usuario.setNivel(2);
 			Usuario novoUsuario = new UsuarioDAO().register(usuario);
 			if(novoUsuario!= null) {
 				return "cadastrarUsuario";
@@ -41,6 +42,24 @@ public class UsuarioAction  {
 				// TODO: handle exception
 			}
 			return "cadastrarUsuario";
+		}
+		
+		@RequestMapping(value = "/cadastrarUsuarioExterno", method = RequestMethod.POST)
+		public String cadastrarUsuarioExterno(@RequestParam(value = "nome") String nome,  @RequestParam(value = "email") String email ,@RequestParam(value = "senha") String senha,Model model, HttpSession session) {
+			try {
+			Usuario usuario = new Usuario();
+			usuario.setNome(nome);
+			usuario.setEmail(email);
+			usuario.setSenha(senha);
+			usuario.setNivel(99);
+			Usuario novoUsuario = new UsuarioDAO().register(usuario);
+			if(novoUsuario!= null) {
+				return "cadastroUsuarioExterno";
+			}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return "cadastroUsuarioExterno";
 		}
 		
 		@RequestMapping(value = "/consultaUsuario")

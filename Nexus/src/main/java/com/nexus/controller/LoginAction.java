@@ -46,7 +46,6 @@ public class LoginAction {
 
 	}
 	
-
 	private void removerSessao(HttpSession session) {
 		if(session.getAttribute("usuarioLogado")!= null) {
 			session.removeAttribute("usuarioLogado");

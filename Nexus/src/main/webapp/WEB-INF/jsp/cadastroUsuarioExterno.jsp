@@ -12,18 +12,16 @@
 <jsp:include page="css.jsp" />
 </head>
 <body>
-<jsp:include page="cabecalho.jsp" />
-<jsp:include page="menu.jsp" />
 		<section id="main-content">
 			<section class="wrapper">
 				<h3>
-					<i class="fa fa-angle-right"></i> Cadastro Usuário
+					<i class="fa fa-cirlce "></i> Criar conta
 				</h3>
 				<!-- BASIC FORM VALIDATION -->
 				<div class="row mt">
 					<div class="col-lg-12">
 						<div class="form-panel">
-							<form role="form" class="form-horizontal style-form"  action="cadastrarUsuario" method="post">
+							<form role="form" class="form-horizontal style-form"  action="cadastrarUsuarioExterno" method="post">
 								<div class="form-group">
 									<label class="col-lg-2 control-label">Nome</label>
 									<div class="col-lg-10">

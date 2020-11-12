@@ -27,7 +27,6 @@
 					<p class="centered">
 						<h5 class="centered">${usuarioLogado.nome}</h5>
 					</p>
-					<li class="mt"><a class="active" href="index.html">  <i class="fa fa-dashboard"></i> <span>Gráficos</span></a></li>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-desktop"></i> <span>Cadastro</span> </a>
 						<ul class="sub">
 							<li><a  class="fa fa-user" href="/cadastroUsuario"> - Usuário</a></li>
