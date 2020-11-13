@@ -9,11 +9,11 @@
 <meta name="description" content="">
 <meta name="author" content="Dashboard">
 <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-<jsp:include page="css.jsp" />
+<jsp:include page="../css.jsp" />
 </head>
 <body>
-<jsp:include page="cabecalho.jsp" />
-<jsp:include page="menu.jsp" />
+<jsp:include page="../cabecalho.jsp" />
+<jsp:include page="../menu.jsp" />
 		<section id="main-content">
 			<section class="wrapper">
 				<h3>

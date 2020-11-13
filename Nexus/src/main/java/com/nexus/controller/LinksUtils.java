@@ -10,12 +10,18 @@ public class LinksUtils {
 	
 	@GetMapping({"/cadastroUsuario"})
 	public String cadastroUsuario() {
-		return "cadastroUsuario";
+		return "usuario/cadastroUsuario";
 	}
 	
 	@GetMapping({"/cadastroUsuarioExterno"})
 	public String cadastroUsuarioExterno() {
-		return "cadastroUsuarioExterno";
+		return "usuario/cadastroUsuarioExterno";
+	}
+	
+	@GetMapping({"/sucesso"})
+	public static String sucesso(HttpSession session, String msgSucesso) {
+		session.setAttribute("msgSucesso", msgSucesso);
+		return "utils/sucesso";
 	}
 	
 	@GetMapping({"/menu"})

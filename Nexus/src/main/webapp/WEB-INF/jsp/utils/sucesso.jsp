@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Sucesso</title>
 </head>
+<style>
+h1 {text-align: center;}
+</style>
 <body>
-<h5>Usuário</h5>
-<h3>Hello ${name}!</h3>
-<h3>Hello ${pass}!</h3>
+<h1>${msgSucesso}</h1>
 </body>
 </html>

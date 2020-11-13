@@ -40,6 +40,7 @@ public class UsuarioAction  {
 			}
 			} catch (Exception e) {
 				// TODO: handle exception
+				e.printStackTrace();
 			}
 			return "cadastrarUsuario";
 		}
@@ -54,12 +55,13 @@ public class UsuarioAction  {
 			usuario.setNivel(99);
 			Usuario novoUsuario = new UsuarioDAO().register(usuario);
 			if(novoUsuario!= null) {
-				return "cadastroUsuarioExterno";
+				return  LinksUtils.sucesso(session, "Conta criada com sucesso");
 			}
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
+				return  LinksUtils.sucesso(session, "Erro ao criar conta");
 			}
-			return "cadastroUsuarioExterno";
+			return "login";
 		}
 		
 		@RequestMapping(value = "/consultaUsuario")

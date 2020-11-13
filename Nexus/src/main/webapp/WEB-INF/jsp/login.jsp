@@ -31,8 +31,7 @@
 						<br> 
 						<input name="senha" class="form-control" placeholder="Senha">
 						<span style="color:red">${erroAologar}</span>
-						<p><label class="checkbox"> 
-						<input type="checkbox" value="remember-me"> Lembre-me 
+						<span><p><label class="checkbox"> <input type="checkbox" value="remember-me"> Lembre-me </span>
 						<span class="pull-right"><a data-toggle="modal"> Esqueceu a senha?</a></span>
 					</label>
 					<button class="btn btn-theme btn-block" type="submit">
