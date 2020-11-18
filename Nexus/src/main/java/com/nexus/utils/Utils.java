@@ -21,4 +21,9 @@ public class Utils {
            email.send();
 	}
 
+
+	public static boolean isPreenchido(String str) {
+		return str!= null && !str.trim().contentEquals("")?true:false;
+	}
+
 }

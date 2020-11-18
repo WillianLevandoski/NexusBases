@@ -64,11 +64,16 @@ public class UsuarioAction  {
 			return "login";
 		}
 		
-		@RequestMapping(value = "/consultaUsuario")
-		public String consultar( Model model) {
-			List<Usuario> lsUsuario	= new UsuarioDAO().listarTodos();
-			model.addAttribute("lsUsuario", lsUsuario);
-			return "consultarUsuario";
+		@RequestMapping(value = "/pesquisarUsuario")
+		public String consultar( @RequestParam(value = "pesquisarUsuario") String pesquisa, Model model) {
+			if(Utils.isPreenchido(pesquisa)) {
+				List<Usuario> lsUsuario	= new UsuarioDAO().pesquisa(pesquisa);
+				model.addAttribute("lsUsuario", lsUsuario);
+			}else {
+				List<Usuario> lsUsuario	= new UsuarioDAO().listarTodos();
+				model.addAttribute("lsUsuario", lsUsuario);
+			}
+			return "usuario/consultarUsuario";
 		}
 		
 }

@@ -37,6 +37,12 @@
 							<li><a class="fa fa-user" href="/consultaUsuario"> - Usuário</a></li>
 						</ul>
 					</li>
+					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-gears"></i> <span>Configuração</span> </a>
+						<ul class="sub">
+							<li><a class="fa fa-shield" href="/consultaUsuario"> - Permissões</a></li>
+							<li><a class="fa fa-laptop" href="/consultaUsuario"> - Sistema</a></li>
+						</ul>
+					</li>
 				</ul>
 				<!-- sidebar menu end-->
 			</div>
