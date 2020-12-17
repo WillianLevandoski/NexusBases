@@ -29,18 +29,22 @@
 					</p>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-desktop"></i> <span>Cadastro</span> </a>
 						<ul class="sub">
-							<li><a  class="fa fa-user" href="/cadastroUsuario"> - Usuário</a></li>
+							<li><a href="/cadastroProduto"> Produto</a></li>
+							<li><a href="/cadastroUsuario"> Usuário</a></li>
+							<li><a href="/cadastroGrupo"> Grupo</a></li>
+							<li><a href="/cadastroRestricao"> Usuário</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-search"></i> <span>Consulta</span> </a>
 						<ul class="sub">
-							<li><a class="fa fa-user" href="/consultaUsuario"> - Usuário</a></li>
+							<li><a href="/consultaProduto"> Produto</a></li>
+							<li><a href="/consultaUsuario"> Usuário</a></li>
 						</ul>
 					</li>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-gears"></i> <span>Configuração</span> </a>
 						<ul class="sub">
-							<li><a class="fa fa-shield" href="/consultaUsuario"> - Permissões</a></li>
-							<li><a class="fa fa-laptop" href="/consultaUsuario"> - Sistema</a></li>
+							<li><a href="/consultaUsuario"> Permissões</a></li>
+							<li><a href="/consultaUsuario"> Sistema</a></li>
 						</ul>
 					</li>
 				</ul>

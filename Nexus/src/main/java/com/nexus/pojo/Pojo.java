@@ -15,7 +15,7 @@ public abstract class Pojo implements Serializable {
     public abstract void setId(Integer cod);
 	private  HashMap<String, Object> dadosMap ;
 
-    
+     
 
     public boolean equals(Object other) {
     	//TODO: Fazer

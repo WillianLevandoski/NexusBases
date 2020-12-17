@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nexus.dao.UsuarioDAO;
 import com.nexus.exception.UsuarioException;
+import com.nexus.pojo.Grupo;
 import com.nexus.pojo.Usuario;
 import com.nexus.utils.Utils;
 
@@ -19,13 +20,6 @@ import com.nexus.utils.Utils;
 @Controller
 public class UsuarioAction  {
 	
-		@GetMapping({"/usuario"})
-		public String hello(@RequestParam(value = "name", defaultValue = "World", required = true)String name,@RequestParam(value = "senha", defaultValue = "World", required = true)String senha, Model model) {
-			model.addAttribute("name", name);
-			model.addAttribute("pass", senha);
-			return "usuario";
-		}
-		
 		@RequestMapping(value = "/cadastrarUsuario", method = RequestMethod.POST)
 		public String cadastrarUsuario(@RequestParam(value = "nome") String nome,  @RequestParam(value = "email") String email ,@RequestParam(value = "senha") String senha,Model model, HttpSession session) {
 			try {
@@ -33,13 +27,12 @@ public class UsuarioAction  {
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			usuario.setSenha(senha);
-			usuario.setNivel(2);
-			Usuario novoUsuario = new UsuarioDAO().register(usuario);
+			//usuario.setGrupo(new Grupo());
+			Usuario novoUsuario = new UsuarioDAO().cadastrar(usuario);
 			if(novoUsuario!= null) {
 				return "cadastrarUsuario";
 			}
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 			return "cadastrarUsuario";
@@ -52,8 +45,8 @@ public class UsuarioAction  {
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			usuario.setSenha(senha);
-			usuario.setNivel(99);
-			Usuario novoUsuario = new UsuarioDAO().register(usuario);
+			//usuario.setGrupo(99);
+			Usuario novoUsuario = new UsuarioDAO().cadastrar(usuario);
 			if(novoUsuario!= null) {
 				return  LinksUtils.sucesso(session, "Conta criada com sucesso");
 			}

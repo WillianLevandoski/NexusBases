@@ -20,7 +20,7 @@
 	<section id="main-content">
 		<section class="wrapper">
 			<h3>
-				<i class="fa fa-angle-right"></i> Consultar Usuário
+				<i class="fa fa-angle-right"></i> Consultar Produto
 			</h3>
 			<!-- BASIC FORM VALIDATION -->
 			<div class="row mt">
@@ -28,31 +28,35 @@
 					<div class="content-panel">
 						<table class="table table-hover">
 							<div class="col-lg-12 form-pane">
-								<form class="form-inline" role="form" action="pesquisarUsuario" >
+								<form class="form-inline" role="form" action="pesquisarProduto" >
 									<div class="form-group col-lg-6">
-										<label class="sr-only" for="pesquisarUsuario">Pesquisar Usuário</label> 
-										<input type="pesquisarUsuario" class="form-control" name="pesquisarUsuario"  placeholder="Pesquisar Usuário">
+										<label class="sr-only" for="pesquisarProduto">Pesquisar Produto</label> 
+										<input type="pesquisarProduto" class="form-control" name="pesquisarProduto"  placeholder="Pesquisar por nome ou código">
 									</div>
 									<button type="submit" class="btn btn-theme">Pesquisar</button>
 								</form>
 							</div>
 							<hr>
-							<c:if test="${!empty lsUsuario}">
+							<c:if test="${!empty lsProduto}">
 							<thead>
 								<tr>
 									<th>Id</th>
-									<th>Nome</th>
-									<th>Email</th>
-									<th>Grupo</th>
+									<th>Descrição</th>
+									<th>Quantidade</th>
+									<th>Preço Compra</th>
+									<th>Valor Venda</th>
+									<th>Margem de Lucro</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="usuario" items="${lsUsuario}" varStatus="count">
+								<c:forEach var="produto" items="${lsProduto}" varStatus="count">
 									<tr>
-										<td>${usuario.id}</td>
-										<td>${usuario.nome}</td>
-										<td>${usuario.email}</td>
-										<td>${usuario.grupo.nome}</td>
+										<td>${produto.id}</td>
+										<td>${produto.descricao}</td>
+										<td>${produto.quantidade}</td>
+										<td>${produto.precoCompra}</td>
+										<td>${produto.valorVenda}</td>
+										<td>${produto.margemLucro}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

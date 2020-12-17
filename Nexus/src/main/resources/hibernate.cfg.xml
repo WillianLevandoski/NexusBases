@@ -11,7 +11,12 @@
   <property name="hibernate.show_sql">true</property>
   
   <mapping class="com.nexus.pojo.Usuario"/>
-    
-
+  <mapping class="com.nexus.pojo.Grupo"/>
+  <mapping class="com.nexus.pojo.Restricao"/>
+  <mapping class="com.nexus.pojo.CumpomFiscal"/>
+  <mapping class="com.nexus.pojo.Fones"/>
+  <mapping class="com.nexus.pojo.Fornecedor"/>
+  <mapping class="com.nexus.pojo.Produto"/>
+  <mapping class="com.nexus.pojo.Venda"/>    
  </session-factory>
 </hibernate-configuration>

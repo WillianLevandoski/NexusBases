@@ -2,12 +2,13 @@ package com.nexus.utils;
 
 import java.util.LinkedHashMap;
 
+import com.nexus.pojo.Usuario;
+
 public class Busca {
 	
 	LinkedHashMap<String, String> busca = new LinkedHashMap<String, String>();
 	
-
-	public void busca(Class<Object> clazz) {
+	public Busca(Class<?>  clazz) {
 		String classe = clazz.getName();
 		busca = new LinkedHashMap<String, String>();
 		busca.put("clazz", classe);
@@ -17,8 +18,8 @@ public class Busca {
 		busca.put(chave, valor);
 	}
 	
-	public Busca getBusca(){
-		return this;
+	public LinkedHashMap<String, String> getBusca(){
+		return busca;
 	}
 	
 }

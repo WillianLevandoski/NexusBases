@@ -1,5 +1,7 @@
 package com.nexus.dao;
 
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,14 @@ import com.nexus.utils.Busca;
 
 public class SuperDAO <P extends Pojo> extends DAO {
 	
+	
+		private static final long serialVersionUID = 4738690556487758985L;
+	    public Class getClassPojo() {
+	        ParameterizedType tipo = ((ParameterizedType) this.getClass().getGenericSuperclass());
+	        return (Class) tipo.getActualTypeArguments()[0];
+
+	    }
+	
 	  public static Session getSession(){
 	        return DAO.getSession();
 	  }
@@ -34,7 +44,7 @@ public class SuperDAO <P extends Pojo> extends DAO {
 				q.setString("usuario", nome);
 				q.setString("senha", senha);
 				Usuario usuario = (Usuario) q.uniqueResult();
-				commit();
+				//commit();
 				return usuario;
 			} catch (HibernateException e) {
 				rollback();
@@ -57,28 +67,29 @@ public class SuperDAO <P extends Pojo> extends DAO {
 
 		}
 		
-		public List<Usuario> listarTodos() {
+		public List<Pojo> listarTodos(Class clazz) {
 		    CriteriaBuilder cb = getSession().getCriteriaBuilder();
-		    CriteriaQuery<Usuario> cq = cb.createQuery(Usuario.class);
-		    Root<Usuario> rootEntry = cq.from(Usuario.class);
-		    CriteriaQuery<Usuario> all = cq.select(rootEntry);
-		    TypedQuery<Usuario> allQuery = getSession().createQuery(all);
+		    CriteriaQuery<Pojo> cq = cb.createQuery(clazz);
+		    Root<Pojo> rootEntry = cq.from(clazz);
+		    CriteriaQuery<Pojo> all = cq.select(rootEntry);
+		    TypedQuery<Pojo> allQuery = getSession().createQuery(all);
 		    return allQuery.getResultList();
+		    
 		}
 		
-		public  List<Usuario> pesquisa(String nome) {
+		public  List<Pojo> pesquisa(String nome, Class clazz) {
 			try {
-				Criteria query = getSession().createCriteria(Usuario.class);
+				Criteria query = getSession().createCriteria(clazz);
 				query.add(Restrictions.like("nome", nome, MatchMode.ANYWHERE));
-				List<Usuario> lsUsuario = (List<Usuario>) query.list();
-				return lsUsuario;
+				List<Pojo> lsPojo = (List<Pojo>) query.list();
+				return lsPojo;
 			} catch (HibernateException e) {
 				rollback();
 			}
 			return null;
 		}
 
-		public Usuario register(Usuario u)throws UsuarioException {
+		public Usuario cadastrar(Usuario u)throws UsuarioException {
 			try {
 				begin();
 				getSession().save(u);
@@ -86,7 +97,7 @@ public class SuperDAO <P extends Pojo> extends DAO {
 				return u;
 			} catch (HibernateException e) {
 				rollback();
-				throw new UsuarioException("Exception while creating user: " + e.getMessage());
+				throw new UsuarioException("Erro ao criar Usuario: " + e.getMessage());
 			}
 		}
 
@@ -102,6 +113,8 @@ public class SuperDAO <P extends Pojo> extends DAO {
 		}
 		
 		public Optional<Usuario> getUsuarioPorEmailESenha(String email, String senha){
+			System.out.println(getClassPojo().getName());
+
 			//TODO: senha para md5
 			try {
 				begin();
