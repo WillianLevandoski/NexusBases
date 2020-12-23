@@ -20,6 +20,9 @@ public class Fornecedor extends Pojo {
 	@Column(name = "nome")
 	private String nome;
 	
+	@Column(name = "cnpj")
+	private String cnpj;
+	
 	@Column(name = "telefone")
 	private String fone;
 	
@@ -30,21 +33,56 @@ public class Fornecedor extends Pojo {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario usuario;
-	
 
-	
+
 //----Gets e Sets
-	@Override
+	
 	public Integer getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
-	
-	@Override
-	public void setId(Integer cod) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getFone() {
+		return fone;
+	}
+
+	public void setFone(String fone) {
+		this.fone = fone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 }

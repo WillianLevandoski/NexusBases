@@ -25,7 +25,7 @@ public class LoginAction {
 	public String efetuaLogin(@RequestParam(value = "email") String email, @RequestParam(value = "senha") String senha,Model model, HttpSession session) {
 		try {
 			if (Utils.validarEmail(email)) {
-				Usuario usuario = new UsuarioDAO().getUsuarioPorEmailESenha(email, senha).get();
+				Usuario usuario = new UsuarioDAO().getUsuarioPorEmailESenha(email, senha);
 				if (usuario != null) {
 					setSessao(usuario, session);
 					return "inicial";

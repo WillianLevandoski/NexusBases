@@ -1,5 +1,6 @@
 package com.nexus.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -17,15 +18,25 @@ import com.nexus.utils.Utils;
 public class ProdutoAction {
 	
 	@RequestMapping(value = "/pesquisarProduto")
-	public String consultar( @RequestParam(value = "pesquisarProduto") String pesquisa, Model model) {
-		if(Utils.isPreenchido(pesquisa)) {
-			List<Produto> lsProduto	= new ProdutoDAO().pesquisa(pesquisa);
+	public String consultar(@RequestParam(value = "pesquisarProduto") String pesquisa, Model model) {
+		if (Utils.isPreenchido(pesquisa)) {
+			List<Produto> lsProduto = pesquisaPorNomeOuCodigoDeBarras(pesquisa);
 			model.addAttribute("lsProduto", lsProduto);
-		}else {
-			List<Produto> lsProduto	= new ProdutoDAO().listarTodos();
+		} else {
+			List<Produto> lsProduto = new ProdutoDAO().listarTodos();
 			model.addAttribute("lsProduto", lsProduto);
 		}
 		return "produto/consultarProduto";
+	}
+
+	private List<Produto> pesquisaPorNomeOuCodigoDeBarras(String pesquisa) {
+		List<Produto> lsProduto;
+		if (Utils.isNumero(pesquisa)) {
+			lsProduto = new ProdutoDAO().pesquisaPorCodigoBarras(pesquisa);
+		} else {
+			lsProduto = new ProdutoDAO().pesquisa(pesquisa);
+		}
+		return lsProduto;
 	}
 
 }

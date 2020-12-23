@@ -28,7 +28,6 @@ public class Grupo extends Pojo {
 	
 	
 //----Gets e Sets	
-
 	@Override
 	public Integer getId() {
 		return id;

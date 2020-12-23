@@ -89,17 +89,30 @@ public class SuperDAO <P extends Pojo> extends DAO {
 			return null;
 		}
 
-		public Usuario cadastrar(Usuario u)throws UsuarioException {
+		public Pojo salvar(Pojo pojo)throws UsuarioException {
 			try {
 				begin();
-				getSession().save(u);
+				getSession().save(pojo);
 				commit();
-				return u;
+				return pojo;
 			} catch (HibernateException e) {
 				rollback();
-				throw new UsuarioException("Erro ao criar Usuario: " + e.getMessage());
+				throw new UsuarioException("Erro ao criar : " + e.getMessage());
 			}
 		}
+		
+//		public Usuario cadastrar(Usuario u)throws UsuarioException {
+//			try {
+//				begin();
+//				getSession().save(u);
+//				commit();
+//				return u;
+//			} catch (HibernateException e) {
+//				rollback();
+//				throw new UsuarioException("Erro ao criar Usuario: " + e.getMessage());
+//			}
+//		}
+		
 
 		public void delete(Usuario usuario) throws UsuarioException {
 			try {
@@ -112,23 +125,23 @@ public class SuperDAO <P extends Pojo> extends DAO {
 			}
 		}
 		
-		public Optional<Usuario> getUsuarioPorEmailESenha(String email, String senha){
-			System.out.println(getClassPojo().getName());
-
-			//TODO: senha para md5
-			try {
-				begin();
-				Query q = getSession().createQuery("FROM Usuario where email= :email AND senha= :senha");
-				q.setString("email", email);
-				q.setString("senha", senha);
-				Usuario usuario = (Usuario) q.uniqueResult();
-				commit();
-				return Optional.of(usuario);
-			} catch (HibernateException e) {
-				rollback();
-			}
-			return Optional.empty();
-		}
+//		public Usuario getUsuarioPorEmailESenha(String email, String senha){
+//			System.out.println(getClassPojo().getName());
+//
+//			//TODO: senha para md5
+//			try {
+//				begin();
+//				Query q = getSession().createQuery("FROM Usuario where email= :email AND senha= :senha");
+//				q.setString("email", email);
+//				q.setString("senha", senha);
+//				Usuario usuario = (Usuario) q.uniqueResult();
+//				commit();
+//				return Optional.of(usuario);
+//			} catch (HibernateException e) {
+//				rollback();
+//			}
+//			return Optional.empty();
+//		}
 
 
 		public Optional<Usuario> getUsuarioPorNome(String nome){

@@ -26,7 +26,6 @@ public class Produto extends Pojo {
 	@Column(name = "quantidade")
 	private Integer quantidade;
 	
-	
 	@Column(name = "preco_compra")
 	private Double precoCompra;
 	
@@ -41,6 +40,11 @@ public class Produto extends Pojo {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fornecedor_id", referencedColumnName = "id")
 	private Fornecedor fornecedor;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "nfe_id", referencedColumnName = "id")
+	private NFE nfe;
+
 
 
 //----Gets e Sets
@@ -108,4 +112,12 @@ public class Produto extends Pojo {
 		this.quantidade = quantidade;
 	}
 
+	public NFE getNfe() {
+		return nfe;
+	}
+
+	public void setNfe(NFE nfe) {
+		this.nfe = nfe;
+	}
+	
 }

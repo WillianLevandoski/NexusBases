@@ -45,7 +45,7 @@
 									<th>Quantidade</th>
 									<th>Preço Compra</th>
 									<th>Valor Venda</th>
-									<th>Margem de Lucro</th>
+									<th>Código de Barras</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -56,7 +56,7 @@
 										<td>${produto.quantidade}</td>
 										<td>${produto.precoCompra}</td>
 										<td>${produto.valorVenda}</td>
-										<td>${produto.margemLucro}</td>
+										<td>${produto.codigoDeBarras}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
